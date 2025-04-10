@@ -1,29 +1,37 @@
-flag = True
+def percentages():
+    flag = True
 
-while flag:
-    try:
-        mark_earned = float(input("The weight of all marks before the exam: "))
+    while flag:
+        try:
+            mark_earned = float(input("The weight of all marks before the exam: "))
 
-        mark_loss = float(input("Marks Lost (in %): "))
+            mark_loss = float(input("Marks Lost (in %): "))
 
-        bonus_string = input("Enter the weight of any bonuses: ")
-        bonus = 0
+            bonus_string = input("Enter the weight of any bonuses: ")
+            bonus = 0
 
-        if not bonus_string == "":
-            bonus = float(bonus_string)
-        flag = False
-    except Exception:
-        print("\n\nlol misinput TRY AGAIN\n\n")
+            if not bonus_string == "":
+                bonus = float(bonus_string)
+            flag = False
+        except Exception:
+            print("\n\nlol misinput TRY AGAIN\n\n")
 
-exam_weight = 100 - mark_earned
+    exam_weight = 100 - mark_earned
 
-mark_needed = round(((90 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
+    mark_needed = round(((90 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
 
-mark_a = round(((85 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
-mark_a_minus = round(((80 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
+    mark_a = round(((85 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
+    mark_a_minus = round(((80 - (mark_earned - mark_loss + bonus))/exam_weight)*100, 2)
 
-print(f"You need {mark_needed}% on the final exam for an A+")
+    marks = [mark_needed, mark_a, mark_a_minus]
 
-print(f"\nYou need {mark_a}% on the final exam for an A")
+    print(f"You need {mark_needed}% on the final exam for an A+")
 
-print(f"You need {mark_a_minus}% on the final exam for an A-")
+    print(f"\nYou need {mark_a}% on the final exam for an A")
+
+    print(f"You need {mark_a_minus}% on the final exam for an A-")
+
+    return marks
+
+if __name__ == "__main__":
+    percentages()
